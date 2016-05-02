@@ -8,9 +8,9 @@ codecs.register(jeje)
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=["POST"])
 def index():
-    return request.args.get("m", "").encode("jeje")
+    return request.stream.read().encode("jeje")
 
 
 if __name__ == "__main__":
